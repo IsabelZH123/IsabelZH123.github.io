@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Audio-Lab</title>
+    </head>
+    <body>
+        <h1>Sound Effect Machine</h1>
+        <div id="buttons" style="border: 2px solid rgb(240, 169, 16); padding: 2rem; background:yellowgreen ;display: inline-flex">
+            <button onclick="playAudio('storm')" type="button" style="padding: 2rem; margin: 0 0.5rem">
+                <audio id="storm"><source src="storm.mp3" type="audio/mp3"></audio>
+                <b>Storm</b>
+            </button>
+            <button onclick="playAudio('jjunglebirds')" type="button" style="padding: 2rem; margin: 0 0.5rem">
+                <audio id="jjunglebirds"><source src="jjunglebirds.mp3" type="audio/mp3"></audio>
+                <b>Jjunglebirds</b>
+            </button>
+            <button onclick="playAudio('morning')" type="button" style="padding: 2rem; margin: 0 0.5rem">
+                <audio id="morning"><source src="morning.mp3" type="audio/mp3"></audio>
+                <b>Morning</b>
+            </button>
+            <button onclick="playAudio('springStream')" type="button" style="padding: 2rem; margin: 0 0.5rem">
+                <audio id="springStream"><source src="springStream.mp3" type="audio/mp3"></audio>
+                <b>SpringStream</b>
+            </button>
+            <button onclick="playAudio('wind')" type="button" style="padding: 2rem; margin: 0 0.5rem">
+                <audio id="wind"><source src="wind.mp3" type="audio/mp3"></audio>
+                <b>Wind</b>
+            </button>
+        </div>
+        <br/><br/>
+        <a href='../index.html'>Go back to homepage</a>
+
+        <script>
+            function playAudio(sound)
+            {
+                let audio = document.getElementById(sound);
+                audio.play();
+            }
+        </script>
+    </body>
+</html>
