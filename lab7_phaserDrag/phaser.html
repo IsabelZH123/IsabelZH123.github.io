@@ -27,14 +27,26 @@
             function preload(){
                 
                 this.load.image('background', 'assets/city.jpg')
-                this.load.image('dog','assets/balloon.jpg');
+                this.load.image('dog','assets/dog.png');
+                this.load.image('house','assets/house.jpg');
+                this.load.image('kids','assets/kids.jpg');
+                this.load.image('balloon','assets/balloon.jpg');
             }
 
             function create(){
                 this.add.image(0,0, 'background').setOrigin(0,0);
                 var dog = this.add.sprite(200, 200, 'dog');
+                dog.setScale(0.5);
                 dog.setInteractive();
                 this.input.setDraggable(dog);
+
+                var house = this.add.sprite(200, 200, 'house');
+                house.setScale(0.5);
+                house.setInteractive();
+                this.input.setDraggable(house);
+
+
+
                 this.input.on('drag', function(pointer, gameObject, dragX, dragY){
                     gameObject.x = dragX;
                     gameObject.y = dragY;
