@@ -11,8 +11,8 @@
         <script>
             var config = {
                 type: Phaser.AUTO,
-                width:800,
-                height:600,  
+                width:1800,
+                height:1600,  
                 _parent: 'phaser-example',
                 backgroundColor: '#90dcff',              
                 scene : {
@@ -28,22 +28,33 @@
                 
                 this.load.image('background', 'assets/city.jpg')
                 this.load.image('dog','assets/dog.png');
-                this.load.image('house','assets/house.jpg');
-                this.load.image('kids','assets/kids.jpg');
-                this.load.image('balloon','assets/balloon.jpg');
+                this.load.image('house','assets/house.png');
+                this.load.image('kids','assets/kids.png');
+                this.load.image('balloon','assets/balloon.png');
             }
 
             function create(){
                 this.add.image(0,0, 'background').setOrigin(0,0);
+                
                 var dog = this.add.sprite(200, 200, 'dog');
-                dog.setScale(0.5);
+                dog.setScale(0.3);
                 dog.setInteractive();
                 this.input.setDraggable(dog);
 
-                var house = this.add.sprite(200, 200, 'house');
-                house.setScale(0.5);
+                var house = this.add.sprite(600, 600, 'house');
+                house.setScale(0.1);
                 house.setInteractive();
                 this.input.setDraggable(house);
+
+                var kids = this.add.sprite(100, 100, 'kids');
+                kids.setScale(0.1);
+                kids.setInteractive();
+                this.input.setDraggable(kids);
+
+                var balloon = this.add.sprite(500, 500, 'balloon');
+                balloon.setScale(0.1);
+                balloon.setInteractive();
+                this.input.setDraggable(balloon);
 
 
 
