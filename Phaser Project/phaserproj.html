@@ -47,7 +47,7 @@ function preload ()
 {
     this.load.image('sky', 'assets/sky.jpg');
     this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/cake.png');
+    this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 190.5, frameHeight: 209 });
 }
@@ -158,7 +158,7 @@ function update ()
 
     if (cursors.up.isDown && player.body.touching.down)
     {
-        player.setVelocityY(-330);
+        player.setVelocityY(-430);
     }
 }
 
