@@ -47,9 +47,9 @@ function preload ()
 {
     this.load.image('sky', 'assets/sky.jpg');
     this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/cake.png');
+    this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/dude.png', { frameWidth: 190.5, frameHeight: 209 });
+    this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 32, frameHeight: 48 });
 }
 
 function create ()
@@ -70,7 +70,7 @@ function create ()
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
-    player = this.physics.add.sprite(100, 450, 'dude').setScale(0.2);
+    player = this.physics.add.sprite(100, 450, 'dude');
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
@@ -105,7 +105,7 @@ function create ()
         key: 'star',
         repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 }
-    }).setScale(0.1);
+    });
 
     stars.children.iterate(function (child) {
 
@@ -117,7 +117,7 @@ function create ()
     bombs = this.physics.add.group();
 
     //  The score
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFFFF' });
+    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
 
     //  Collide the player and the stars with the platforms
     this.physics.add.collider(player, platforms);
