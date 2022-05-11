@@ -47,9 +47,9 @@ function preload ()
 {
     this.load.image('sky', 'assets/sky.jpg');
     this.load.image('ground', 'assets/platform.png');
-    this.load.image('star', 'assets/star.png');
+    this.load.image('star', 'assets/cake.png');
     this.load.image('bomb', 'assets/bomb.png');
-    this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 32, frameHeight: 48 });
+    this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 190.5, frameHeight: 209 });
 }
 
 function create ()
@@ -70,7 +70,7 @@ function create ()
     platforms.create(750, 220, 'ground');
 
     // The player and its settings
-    player = this.physics.add.sprite(100, 450, 'dude');
+    player = this.physics.add.sprite(100, 450, 'dude').setScale(0.2);
 
     //  Player physics properties. Give the little guy a slight bounce.
     player.setBounce(0.2);
@@ -86,13 +86,13 @@ function create ()
 
     this.anims.create({
         key: 'turn',
-        frames: [ { key: 'dude', frame: 4 } ],
+        frames: [ { key: 'dude', frame: 8 } ],
         frameRate: 20
     });
 
     this.anims.create({
         key: 'right',
-        frames: this.anims.generateFrameNumbers('dude', { start: 5, end: 8 }),
+        frames: this.anims.generateFrameNumbers('dude', { start: 4, end: 7 }),
         frameRate: 10,
         repeat: -1
     });
@@ -105,7 +105,7 @@ function create ()
         key: 'star',
         repeat: 11,
         setXY: { x: 12, y: 0, stepX: 70 }
-    });
+    }).setScale(0.1);
 
     stars.children.iterate(function (child) {
 
