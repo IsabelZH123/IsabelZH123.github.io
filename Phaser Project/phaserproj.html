@@ -43,6 +43,7 @@ var scoreText;
 var gaincoin;
 var loseLive;
 var gameOver;
+var backSound
 
 
 var game = new Phaser.Game(config);
@@ -57,12 +58,15 @@ function preload ()
     this.load.audio("gaincoin", ["gaincoin.wav"]);
     this.load.audio("loseLive", ["loseLive.wav"]);
     this.load.audio("gameOver", ["gameOver.wav"]);
+    this.load.audio("backSound", ["backgroundSound.mp3"]);
 }
 
 function create ()
 {
     
     this.add.image(400, 300, 'sky');
+    backSound = this.sound.add("backSound", { loop: true });
+    backSound.play();
 
     
     platforms = this.physics.add.staticGroup();
@@ -201,7 +205,7 @@ function collectStar (player, star)
        
       var y = (player.y < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        var bomb = bombs.create(y, 16, 'bomb');
+        var bomb = bombs.create(y, 16, 'bomb').setScale(0.2);
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
