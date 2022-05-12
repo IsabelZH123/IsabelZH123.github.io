@@ -40,6 +40,10 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
+var gaincoin;
+var loseLive;
+var gameOver;
+
 
 var game = new Phaser.Game(config);
 
@@ -50,6 +54,9 @@ function preload ()
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 190.5, frameHeight: 209 });
+    this.load.audio("gaincoin", ["gaincoin.wav"]);
+    this.load.audio("loseLive", ["loseLive.wav"]);
+    this.load.audio("gameOver", ["gameOver.wav"]);
 }
 
 function create ()
@@ -117,7 +124,7 @@ function create ()
     bombs = this.physics.add.group();
     var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
-        var bomb = bombs.create(x, 16, 'bomb');
+        var bomb = bombs.create(x, 16, 'bomb').setScale(0.2);
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
@@ -125,6 +132,10 @@ function create ()
 
     
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
+
+
+    gaincoin = this.sound.add("gainCoin", { loop: false });
+    loseLive = this.sound.add("loseLive", { loop: false });
 
     
     this.physics.add.collider(player, platforms);
@@ -172,6 +183,7 @@ function update ()
 function collectStar (player, star)
 {
     star.disableBody(true, true);
+    getcoin.play();
 
     
     score += 10;
