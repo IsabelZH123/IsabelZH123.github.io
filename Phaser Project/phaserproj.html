@@ -40,7 +40,6 @@ var cursors;
 var score = 0;
 var gameOver = false;
 var scoreText;
-var lives;
 
 var game = new Phaser.Game(config);
 
@@ -71,7 +70,7 @@ function create ()
     platforms.create(0, 150, 'ground');
 
     
-    player = this.physics.add.sprite(400, 300, 'dude').setScale(0.3);
+    player = this.physics.add.sprite(200, 450, 'dude').setScale(0.3);
 
     
     player.setBounce(0.2);
@@ -119,8 +118,6 @@ function create ()
 
     
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
-
-    lives = this.add.text(16, 700, 'lives: 0', { fontSize: '32px', fill: '#FFFCA4' });
 
     
     this.physics.add.collider(player, platforms);
@@ -172,7 +169,7 @@ function collectStar (player, star)
     
     score += 10;
     scoreText.setText('Score: ' + score);
-
+       
     if (stars.countActive(true) === 0)
     {
         
@@ -182,13 +179,14 @@ function collectStar (player, star)
 
         });
 
-        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+       
+    /* var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
         bomb.setCollideWorldBounds(true);
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-        bomb.allowGravity = false;
+        bomb.allowGravity = false;*/
 
     }
 }
