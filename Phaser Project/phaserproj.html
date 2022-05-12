@@ -49,7 +49,7 @@ function preload ()
     this.load.image('sky', 'assets/sky.jpg');
     this.load.image('ground', 'assets/platform.png');
     this.load.image('star', 'assets/star.png');
-    this.load.image('bomb', 'assets/spider.png');
+    this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 190.5, frameHeight: 209 });
 }
 
@@ -115,20 +115,12 @@ function create ()
 
     });
 
-    bombs = this.physics.add.group().setScale(0.2);
-
-    var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
-
-    var bomb = bombs.create(x, 16, 'bomb');
-    bomb.setBounce(1);
-    bomb.setCollideWorldBounds(true);
-    bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
-    bomb.allowGravity = false;
+    bombs = this.physics.add.group();
 
     
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
 
-    lives = this.add.text(16, 700, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
+    lives = this.add.text(16, 700, 'lives: 0', { fontSize: '32px', fill: '#FFFCA4' });
 
     
     this.physics.add.collider(player, platforms);
@@ -181,9 +173,6 @@ function collectStar (player, star)
     score += 10;
     scoreText.setText('Score: ' + score);
 
-
-
-
     if (stars.countActive(true) === 0)
     {
         
@@ -192,9 +181,8 @@ function collectStar (player, star)
             child.enableBody(true, child.x, 0, true, true);
 
         });
-    }
 
-       /* var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+        var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
         bomb.setBounce(1);
@@ -202,7 +190,7 @@ function collectStar (player, star)
         bomb.setVelocity(Phaser.Math.Between(-200, 200), 20);
         bomb.allowGravity = false;
 
-    }*/
+    }
 }
 
 function hitBomb (player, bomb)
