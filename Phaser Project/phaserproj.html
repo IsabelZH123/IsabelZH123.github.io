@@ -114,7 +114,7 @@ function create ()
 
     });
 
-    bombs = this.physics.add.group().setScale(0.2);
+    bombs = this.physics.add.group();
     var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
 
         var bomb = bombs.create(x, 16, 'bomb');
