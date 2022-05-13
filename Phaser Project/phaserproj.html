@@ -233,8 +233,9 @@ function hitBomb (player, bomb)
       if (lives!=0){
 
         this.scene.restart();
-      }else{
-          //this.physics.pause();
+      }else if(lives==0){
+          livesText.setText('lives: 0');
+          this.physics.pause();
           gameOverText.visible = true;
           //gameOverSound = this.sound.add("gameOver", { loop: false });
           //gameOverSound.play();          
