@@ -45,6 +45,8 @@ var loseLive;
 var gameOverSound;
 var backSound;
 var lives=3;
+var gameOverText;
+var livesText;
 
 
 var game = new Phaser.Game(config);
@@ -137,8 +139,8 @@ function create ()
 
     
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
-    var livesText = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
-    var gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
+    livesText = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
+    gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
     gameOverText.visible = false;
 
        
@@ -222,7 +224,7 @@ function collectStar (player, star)
 function hitBomb (player, bomb)
 {
    if(lives>0){
-      lives -= 1;
+      lives --;
       livesText.setText('Lives: ' + lives);
       loseLive = this.sound.add("loseLive", { loop: false });
       loseLive.play(); 
