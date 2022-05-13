@@ -237,8 +237,8 @@ function hitBomb (player, bomb)
           livesText.setText('lives: 0');
           this.physics.pause();
           gameOverText.visible = true;
-          //gameOverSound = this.sound.add("gameOver", { loop: false });
-          //gameOverSound.play();          
+          gameOverSound = this.sound.add("gameOver", { loop: false });
+          gameOverSound.play();          
           //gameOver = true;
 
       }
