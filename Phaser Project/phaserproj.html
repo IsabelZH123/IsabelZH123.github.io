@@ -153,7 +153,7 @@ function create ()
     .setPadding(10)
     .setStyle({ backgroundColor: '#111' })
     .setInteractive({ useHandCursor: true })
-    .on('pointerdown', this.scene.restart())
+    .on('pointerdown', actionOnClick)
     .on('pointerover', () => buttonN.setStyle({ fill: '#f39c12' }))
     .on('pointerout', () => buttonN.setStyle({ fill: '#FFF' }))
 
@@ -267,9 +267,9 @@ function hitBomb (player, bomb)
       
    }
 
-   /*function actionOnClick(){
+   function actionOnClick(){
          this.scene.restart();
-   }*/
+   }
     
 
     
