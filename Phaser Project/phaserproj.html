@@ -238,8 +238,8 @@ function hitBomb (player, bomb)
           this.physics.pause();
           player.visible = false;
           gameOverText.visible = true;
-          //gameOverSound = this.sound.add("gameOver", { loop: false });
-          //gameOverSound.play();          
+          gameOverSound = this.sound.add("gameOverSound", { loop: false });
+          gameOverSound.play();          
           //gameOver = true;
 
       }
