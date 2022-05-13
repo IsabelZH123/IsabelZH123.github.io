@@ -65,7 +65,7 @@ function preload ()
     this.load.audio("gameOverSound", 'assets/gameOver.mp3');
     this.load.audio("backSound", "assets/backgroundSound.mp3");
     //this.load.image('buttonH', 'assets/h.png');
-    this.load.image('buttonN', 'assets/n.png');
+    //this.load.image('buttonN', 'assets/n.png');
 }
 
 function create ()
@@ -148,14 +148,13 @@ function create ()
     gameOverText.visible = false;
 
     //buttonH = this.add.button(16,500, 'buttonH', actionOnClick).setScale(0.5);
-    /* buttonN = this.add.text(500,500, 'N',  { fontSize: '32px',fill: '#0f0'})
-     .setOrigin(0.5)
-    .setPadding(10)
+    buttonN = this.add.text(500,500, 'N',  { fontSize: '32px',fill: '#0f0'})
+     .setPadding(10)
     .setStyle({ backgroundColor: '#111' })
     .setInteractive({ useHandCursor: true })
     .on('pointerdown', actionOnClick)
     .on('pointerover', () => buttonN.setStyle({ fill: '#f39c12' }))
-    .on('pointerout', () => buttonN.setStyle({ fill: '#FFF' })) */
+    .on('pointerout', () => buttonN.setStyle({ fill: '#FFF' }));
 
     //buttonH = this.add.button(16,500, 'buttonH', this.actionOnClick, this);
 
