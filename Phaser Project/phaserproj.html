@@ -56,7 +56,7 @@ function preload ()
     this.load.image('star', 'assets/star.png');
     this.load.image('bomb', 'assets/bomb.png');
     this.load.spritesheet('dude', 'assets/d.png', { frameWidth: 190.5, frameHeight: 209 });
-    this.load.audio("gaincoin", "assets/gaincoin.mp3");
+    this.load.audio("gaincoin", 'assets/gaincoin.mp3');
     //this.load.audio("loseLive", ["loseLive.wav"]);
     //this.load.audio("gameOver", ["gameOver.wav"]);
     this.load.audio("backSound", "assets/backgroundSound.mp3");
@@ -139,7 +139,7 @@ function create ()
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
     lives = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
 
-    gaincoin = this.sound.add("gaincoin", { loop: false });   
+       
 
     
     this.physics.add.collider(player, platforms);
@@ -187,8 +187,8 @@ function update ()
 
 function collectStar (player, star)
 {
-   
-    getcoin.play();
+    gaincoin = this.sound.add("gaincoin", { loop: false });
+    gaincoin.play();
     star.disableBody(true, true);
     
 
