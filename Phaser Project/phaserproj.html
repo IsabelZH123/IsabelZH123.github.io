@@ -66,7 +66,8 @@ function create ()
 {
     
     this.add.image(400, 300, 'sky');
-    
+    backSound = this.sound.add("backSound");
+    backSound.play();    
 
     
     platforms = this.physics.add.staticGroup();
@@ -139,8 +140,7 @@ function create ()
     lives = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
 
 
-    backSound = this.sound.add("backSound");
-    backSound.play();
+    
 
     
     this.physics.add.collider(player, platforms);
@@ -157,6 +157,7 @@ function update ()
 {
     if (gameOver)
     {
+        backSound.stop();
         return;
     }
 
