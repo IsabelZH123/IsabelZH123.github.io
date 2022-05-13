@@ -47,7 +47,7 @@ var backSound;
 var lives=3;
 var gameOverText;
 var livesText;
-var buttonH;
+//var buttonH;
 var buttonN;
 
 
@@ -65,7 +65,7 @@ function preload ()
     this.load.audio("gameOverSound", 'assets/gameOver.mp3');
     this.load.audio("backSound", "assets/backgroundSound.mp3");
     //this.load.image('buttonH', 'assets/h.png');
-    //this.load.image('buttonN', 'assets/n.png');
+    this.load.image('buttonN', 'assets/n.png');
 }
 
 function create ()
@@ -148,9 +148,11 @@ function create ()
     gameOverText.visible = false;
 
     //buttonH = this.add.button(16,500, 'buttonH', actionOnClick).setScale(0.5);
-    buttonN = this.add.text(500,500, 'N',  { fontSize: '32px',fill: '#0f0'})
+   /* buttonN = this.add.text(500,500, 'N',  { fontSize: '32px',fill: '#0f0'})
     .setInteractive()
-    .on('pointerdown', () => this.ClickButtonText() );
+    .on('pointerdown', () => this.ClickButtonText() ); */
+
+    buttonH = this.add.button(16,500, 'buttonH', this.actionOnClick, this).setScale(0.5);
 
 
         
@@ -260,7 +262,7 @@ function hitBomb (player, bomb)
       
    }
 
-   function ClickButtonText(){
+   function actionOnClick(){
          this.scene.restart();
    }
     
