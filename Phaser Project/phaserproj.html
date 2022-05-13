@@ -139,8 +139,7 @@ function create ()
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
     lives = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
 
-
-    
+    gaincoin = this.sound.add("gaincoin", { loop: false });   
 
     
     this.physics.add.collider(player, platforms);
@@ -188,7 +187,7 @@ function update ()
 
 function collectStar (player, star)
 {
-    gaincoin = this.sound.add("gaincoin");
+   
     getcoin.play();
     star.disableBody(true, true);
     
