@@ -47,6 +47,8 @@ var backSound;
 var lives=3;
 var gameOverText;
 var livesText;
+var buttonH;
+var buttonN;
 
 
 var game = new Phaser.Game(config);
@@ -62,6 +64,8 @@ function preload ()
     this.load.audio("loseLive", 'assets/fail.mp3');
     this.load.audio("gameOverSound", 'assets/gameOver.mp3');
     this.load.audio("backSound", "assets/backgroundSound.mp3");
+    this.load.image('buttonH', 'assets/h.png');
+    this.load.image('buttonN', 'assets/n.png');
 }
 
 function create ()
@@ -142,7 +146,11 @@ function create ()
     livesText = this.add.text(500, 16, 'lives: ' + lives, { fontSize: '32px', fill: '#FFFCA4' });
     gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
     gameOverText.visible = false;
-    
+
+    buttonH = this.add.button(16,500, 'buttonH', actionOnClick).setScale(0.5);
+    buttonN = this.add.button(500,500, 'buttonN', actionOnClickN).setScale(0.5);
+
+        
 
        
 
@@ -244,16 +252,13 @@ function hitBomb (player, bomb)
 
       }
 
-        /*this.physics.pause();
-        player.setTint(0xff0000);
-        player.anims.play('turn');
-        gameOverSound = this.sound.add("gameOver", { loop: false });
-        gameOverSound.play();
-        gameOverText.visible = true;
-        gameOver = true;
-        }*/
+       
       
       
+   }
+
+   function actionOnClickH(){
+         this.scene.restart();
    }
     
 
