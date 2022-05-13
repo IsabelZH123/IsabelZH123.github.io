@@ -4,31 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Voice Recognition Project</title>
 </head>
 <body>
-    <!-- Input area -->
-    <label for="Speech Recognition">Speech Recognition</label>
-    <input type="text" name="" id="speechToText" placeholder="Speak Something" onclick="record()">
+    
+    <button id='btnGiveCommand'>Speak!</button>
+    <br><br>
+    <span id='message'></span>
+    <br><br>
+    <h5>Instructions:</h5>
+    <p>.This ia a Voice Recognition program. When you says the name of below five objects, that object would be checked. </p>
+    <p>.Say "Help" if you need help!</p>
+    <p>.Say 'About', to hear about the program</p>
 
-    <!-- Below is the script for voice recognition and conversion to text-->
+    <br><br>
+    <input id='chkApple' type="checkbox"> Apple
+    <br>
+    <input id='chkBanana' type="checkbox"> Banana
+    <br>
+    <input id='chkOrange' type="checkbox"> Orange
+    <br>
+    <input id='chkTable' type="checkbox"> Table
+    <br>
+    <input id='chkTree' type="checkbox"> Tree
+    
     <script>
-        function record() {
-            var recognition = new webkitSpeechRecognition();
-            recognition.lang = "en-GB";
+        var message = document.querySelector('#message');
 
-            recognition.onresult = function(event) {
-                // console.log(event);
-                document.getElementById('speechToText').value = event.results[0][0].transcript;
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+
+        var grammar = '#JSGF V1.0;'
+
+        var recognition = new SpeechRecognition();
+        var speechRecognitionList = new SpeechGrammarList();
+        speechRecognitionList.addFromString(grammar, 1);
+        recognition.grammars = speechRecognitionList;
+        recognition.lang = 'en-US';
+        recognition.interimResults = false;
+
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+            var command = event.results[last][0].transcript;
+            message.textContent = 'Voice Input: ' + command + '.';
+
+            if(command.toLowerCase() === 'apple'){
+                document.querySelector('#chkApple').checked = true;
             }
+            else if (command.toLowerCase() === 'banana'){
+                document.querySelector('#chkBanana').checked = true;
+            }
+            else if (command.toLowerCase() === 'orange'){
+                document.querySelector('#chkOrange').checked = true;
+            }
+            else if (command.toLowerCase() === 'table'){
+                document.querySelector('#chkTable').checked = true;
+            }else if (command.toLowerCase() === 'tree'){
+                document.querySelector('#chkTree').checked = true;
+            }   
+        };
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+        };
+
+        recognition.onerror = function(event) {
+            message.textContent = 'Error occurred in recognition: ' + event.error;
+        }        
+
+        document.querySelector('#btnGiveCommand').addEventListener('click', function(){
             recognition.start();
 
-        }
-    </script>
-    
-    <div class="container mt-5">
-        <a href = "../index.html">Go back to Homepage!</a>
+        });
 
-    </div>
+
+    </script>
 </body>
 </html>
