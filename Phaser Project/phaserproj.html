@@ -68,8 +68,8 @@ function create ()
 {
     
     this.add.image(400, 300, 'sky');
-    backSound = this.sound.add("backSound");
-    backSound.play();    
+    //backSound = this.sound.add("backSound");
+    //backSound.play();    
 
     
     platforms = this.physics.add.staticGroup();
@@ -138,7 +138,7 @@ function create ()
         bomb.allowGravity = false;
 
     
-    scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
+    scoreText = this.add.text(16, 16, 'score: ', { fontSize: '32px', fill: '#FFFCA4' });
     livesText = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
     gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
     gameOverText.visible = false;
@@ -228,6 +228,7 @@ function hitBomb (player, bomb)
       livesText.setText('Lives: ' + lives);
       loseLive = this.sound.add("loseLive", { loop: false });
       loseLive.play(); 
+      backSound.stop();
       if (lives==0){
         this.physics.pause();
         player.setTint(0xff0000);
@@ -237,7 +238,7 @@ function hitBomb (player, bomb)
         gameOverText.visible = true;
         gameOver = true;
         }
-      backSound.stop();
+      
       this.scene.restart();
    }
     
