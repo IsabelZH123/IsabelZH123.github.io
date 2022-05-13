@@ -142,6 +142,8 @@ function create ()
     livesText = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
     gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
     gameOverText.visible = false;
+    lives --;
+    livesText.setText('lives: ' + lives);
 
        
 
