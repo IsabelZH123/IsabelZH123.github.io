@@ -44,7 +44,7 @@ var gaincoin;
 var loseLive;
 var gameOverSound;
 var backSound;
-var lives=3;
+var lives=1;
 var gameOverText;
 var livesText;
 
@@ -237,6 +237,7 @@ function hitBomb (player, bomb)
         gameOverText.visible = true;
         gameOver = true;
         }
+      backSound.stop();
       this.scene.restart();
    }
     
