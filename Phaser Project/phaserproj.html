@@ -68,8 +68,8 @@ function create ()
 {
     
     this.add.image(400, 300, 'sky');
-    //backSound = this.sound.add("backSound");
-    //backSound.play();    
+    backSound = this.sound.add("backSound");
+    backSound.play();    
 
     
     platforms = this.physics.add.staticGroup();
@@ -225,7 +225,7 @@ function hitBomb (player, bomb)
 {
    if(lives>0){
       lives --;
-      livesText.setText('Lives: ' + lives);
+      livesText.setText('lives: ' + lives);
       loseLive = this.sound.add("loseLive", { loop: false });
       loseLive.play(); 
       backSound.stop();
