@@ -234,7 +234,7 @@ function hitBomb (player, bomb)
 
         this.scene.restart();
       }else{
-          this.physics.pause();
+          //this.physics.pause();
           gameOverText.visible = true;
           gameOverSound = this.sound.add("gameOver", { loop: false });
           gameOverSound.play();          
