@@ -8,16 +8,29 @@
 </head>
 <body>
     
-    <button id='btnGiveCommand'>Speak!</button>
-    <br><br>
     <span id='message'></span>
     <br><br>
-    <h5>Instructions:</h5>
-    <p>.This ia a Voice Recognition program. When you says the name of below five objects, that object would be checked. </p>
-    <p>.Say "Help" if you need help!</p>
-    <p>.Say 'About', to hear about the program</p>
-
+    <div class = "container mt-5">
+        <div class = "row">
+            <div class = "col">
+                <h3 class="mb-3">Instruction</h3>
+                <div class = "card">
+                    <div class = "card-body">
+                        <div class = "mx-3">
+                            
+                            <p>1.This ia a Voice Recognition program. When you click the [speak] button and speak one of the name of below five objects, that object would be checked, and the name of the object would be convert into text and is shown on the screen. </p>
+                            <p>2.Say "Help" if you need help!</p>
+                            <p>3.Say "About" to hear about the program.</p>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>    
     <br><br>
+    <button id='btnGiveCommand'>Speak!</button>
+    <br><br>
+
     <input id='chkApple' type="checkbox"> Apple
     <br>
     <input id='chkBanana' type="checkbox"> Banana
