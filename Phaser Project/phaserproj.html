@@ -65,7 +65,7 @@ function preload ()
 function create ()
 {
     
-    this.add.image(400, 300, 'sky').setOrigin(0,0);
+    this.add.image(400, 300, 'sky');
     
 
     
@@ -187,9 +187,10 @@ function update ()
 
 function collectStar (player, star)
 {
-    star.disableBody(true, true);
     gaincoin = this.sound.add("gaincoin");
     getcoin.play();
+    star.disableBody(true, true);
+    
 
     
     score += 10;
