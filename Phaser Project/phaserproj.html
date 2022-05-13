@@ -188,7 +188,8 @@ function update ()
 function collectStar (player, star)
 {
     star.disableBody(true, true);
-    //getcoin.play();
+    gaincoin = this.sound.add("gaincoin");
+    getcoin.play();
 
     
     score += 10;
