@@ -139,7 +139,7 @@ function create ()
     scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#FFFCA4' });
     var livesText = this.add.text(500, 16, 'lives: 3', { fontSize: '32px', fill: '#FFFCA4' });
     var gameOverText = this.add.text(400, 300, 'Game Over!', { fontSize: '64px', fill: '#FFFCA4' }).setOrigin(0.5);
-    ;//gameOverText.visible = false;
+    //gameOverText.visible = false;
 
        
 
@@ -222,25 +222,25 @@ function collectStar (player, star)
 function hitBomb (player, bomb)
 {
    if(lives>0){
-    this.physics.pause();
-    loseLive = this.sound.add("loseLive", { loop: false });
-    loseLive.play();
     
-
-    player.setTint(0xff0000);
-
-    player.anims.play('turn');
+    loseLive = this.sound.add("loseLive", { loop: false });
+    loseLive.play(); 
+    
     lives -= 1;
     livesText.setText('Lives: ' + lives);
+    this.scene.restart();
 
 
 
 
    }else{
-       gameOverSound = this.sound.add("gameOver", { loop: false });
-       gameOverSound.play();
-       gameOverText.visible = true;
-       gameOver = true;
+        this.physics.pause();
+        player.setTint(0xff0000);
+        player.anims.play('turn');
+        gameOverSound = this.sound.add("gameOver", { loop: false });
+        gameOverSound.play();
+        gameOverText.visible = true;
+        gameOver = true;
    }
     
 
