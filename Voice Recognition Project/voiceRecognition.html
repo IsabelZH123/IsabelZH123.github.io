@@ -56,6 +56,10 @@
          var ctx = canvas.getContext("2d");
          ctx.fillStyle = "#d8ffff";
          ctx.fillRect(0,0,1000,700);
+
+         ctx.font = "20px Arial Black";
+         ctx.fillStyle = "blue";
+         ctx.fillText(message, 200, 50);
          }
          document.addEventListener('DOMContentLoaded', draw);
 
