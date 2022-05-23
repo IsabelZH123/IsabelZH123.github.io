@@ -151,6 +151,8 @@ function create ()
     buttonN = this.add.text(500,500, 'N',  { fontSize: '32px',fill: '#0f0'})
      .setPadding(10)
     .setStyle({ backgroundColor: '#111' });
+    buttonN.visible = false;
+
     //.setInteractive({ useHandCursor: true })
     //.on('pointerdown', actionOnClick);
     //.on('pointerover', () => buttonN.setStyle({ fill: '#f39c12' }))
@@ -255,6 +257,7 @@ function hitBomb (player, bomb)
           this.physics.pause();
           player.visible = false;
           gameOverText.visible = true;
+          buttonN.visible = true;
           gameOverSound = this.sound.add("gameOverSound", { loop: false });
           gameOverSound.play();          
           //gameOver = true;
